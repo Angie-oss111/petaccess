@@ -20,6 +20,7 @@ function allergySummary(p){return p.allergyStatus==='none'?'暂无已知过敏':
 function petRuleIssue(place,pets=selectedPets()){
  if(!pets.length)return '请先选择本次同行宠物';
  if(!place)return '暂无符合同行宠物条件的点位';
+ if(place.mallId){const parent=places.find(p=>p.id===place.mallId);const issue=petRuleIssue(parent,pets);if(issue)return `商场入场限制：${issue}`;}
  if(place.maxPets&&pets.length>place.maxPets)return `这家店示例最多接待 ${place.maxPets} 只宠物，请调整同行选择`;
  for(const pet of pets){
   if(pet.species==='cat'){
@@ -68,7 +69,7 @@ function commitOuting(form){const ids=new FormData(form).getAll('outingPets');if
 function confirmRemovePet(id){const pet=state.pets.find(p=>p.id===id);if(!pet)return;state.modal='pet-delete';sheet(`<div class="sheet-body">${sheetHead('移除本机宠物档案？')}<p class="page-desc">将移除${esc(pet.name)}的当前档案；历史预约仍保留当时提交的宠物与照护信息。</p><button class="primary pets-save" data-action="confirm-remove-pet" data-id="${esc(id)}">移除${esc(pet.name)}的档案</button><button class="back-text" data-action="edit-pet" data-id="${esc(id)}">返回编辑</button></div>`)}
 function removePet(id){state.pets=state.pets.filter(p=>p.id!==id);state.outingIds=state.outingIds.filter(value=>value!==id);if(!state.outingIds.length&&state.pets.length)state.outingIds=[state.pets[0].id];persist('pets',state.pets);persist('outing-pets',state.outingIds);state.petOutingDraft=null;state.chatReady=false;render();petManager();toast('本机档案已移除')}
 function newBooking(id){
- const p=places.find(p=>p.id===id);if(!p||p.free)return;if(!state.pets.length){petOnboarding({type:'booking',id});return}const info=getPackage(p);
+ const p=places.find(p=>p.id===id);if(!p||!['cafe','restaurant'].includes(p.type))return;if(!state.pets.length){petOnboarding({type:'booking',id});return}const info=getPackage(p);
  state.bookingReturn=state.modal;state.modal='booking';state.bookingId=id;
  const day=new Date();day.setDate(day.getDate()+1);const date=day.toLocaleDateString('sv-SE');
  const suggestedTime=state.bookingReturn==='ai'&&state.selectedCafe===id?routeTimes()[1].split(' – ')[0]:p.type==='restaurant'?'18:00':'15:40';
