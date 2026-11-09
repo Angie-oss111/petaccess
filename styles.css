@@ -621,3 +621,23 @@ button:active{transform:scale(.98)}
 .quickicon,.quicklink:nth-child(n) .quickicon{width:54px;height:54px}
 .quickicon svg.category-art{width:54px;height:54px}
 @media(max-width:360px){.quicklink{font-size:10px}.quickicon,.quicklink:nth-child(n) .quickicon,.quickicon svg.category-art{width:48px;height:48px}}
+
+/* Compact language control, independent of search and discovery filters. */
+.language-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:-5px 0 16px}
+.language-label{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted)}
+.language-label svg{width:15px;height:15px}
+.language-options{display:flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.language-options button{min-height:44px;padding:0 13px;border-radius:10px;font-size:12px;font-weight:550;transition:background-color .15s,color .15s}
+.language-options button[aria-pressed="true"]{background:var(--primary);color:var(--on-primary);box-shadow:0 2px 4px #254f5d15}
+html[data-locale="en"] .quicklink{font-size:10px;letter-spacing:-.15px}
+html[data-locale="en"] .hero h1{font-size:29px;letter-spacing:-.7px}
+html[data-locale="en"] .hero-content p{max-width:220px;line-height:1.5}
+html[data-locale="en"] .hero-cta{font-size:11px}
+html[data-locale="en"] .card-bottom{flex-wrap:wrap;gap:6px}
+html[data-locale="en"] .pet-home-entry strong{font-size:13px}
+html[data-locale="en"] .dinner-home-entry strong{font-size:13px}
+@media(max-width:360px){.language-options button{padding-inline:11px}.language-label{font-size:10px}html[data-locale="en"] .quicklink{font-size:9px}html[data-locale="en"] .hero h1{font-size:26px}}
+@media(prefers-reduced-motion:reduce){.language-options button{transition:none}}
+
+html[data-locale="en"] .hero{height:228px}
+html[data-locale="en"] .hero-edition{font-size:8px;right:12px;bottom:17px}

@@ -49,7 +49,7 @@ function startVoiceInput(){
  const input=form.elements.message;
  const session={recognition,form,input,draft:input.value,started:false,heard:false,timer:null};
  voiceSession=session;
- recognition.lang='zh-CN';recognition.continuous=false;recognition.interimResults=true;recognition.maxAlternatives=1;
+ recognition.lang=voiceLanguage();recognition.continuous=false;recognition.interimResults=true;recognition.maxAlternatives=1;
  const isCurrent=()=>voiceSession===session&&form.isConnected;
  recognition.onstart=()=>{
   if(!isCurrent()){try{recognition.abort()}catch{}return}
@@ -72,7 +72,7 @@ function startVoiceInput(){
    'audio-capture':'没有找到可用麦克风，请检查设备，或使用键盘输入。',
    'no-speech':'没有听清，可以点“语音”再试一次，或直接打字。',
    'network':'语音服务连接失败，请检查网络后重试，或使用键盘听写。',
-   'language-not-supported':'当前语音服务不支持中文，请使用键盘听写。',
+   'language-not-supported':'当前语音服务不支持所选语言，请使用键盘听写。',
    'aborted':'语音输入已结束，可以继续编辑文字。'
   };
   finishVoice(session,messages[event.error]||'语音识别暂不可用，请重试或使用键盘听写。','error');
