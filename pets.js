@@ -1,11 +1,11 @@
 /* Pet profiles, outing groups and merchant care handoff (local prototype). */
 function normalizePet(p,index=0){
  const species=p.species==='cat'?'cat':'dog';
- return {id:p.id||`pet-${index}`,name:p.name||'毛孩子',species,breed:p.breed||'',size:species==='dog'?(p.size||'中型犬'):'',travelMode:species==='cat'?(p.travelMode||'carrier'):'leash',allergyStatus:['known','none','unknown'].includes(p.allergyStatus)?p.allergyStatus:'unknown',allergens:Array.isArray(p.allergens)?p.allergens:[],allergyNotes:p.allergyNotes||'',careNotes:p.careNotes||''};
+ return {profileConfirmed:p.profileConfirmed===true,id:p.id||`pet-${index}`,name:p.name||'毛孩子',species,breed:p.breed||'',size:species==='dog'?(p.size||'中型犬'):'',travelMode:species==='cat'?(p.travelMode||'carrier'):'leash',allergyStatus:['known','none','unknown'].includes(p.allergyStatus)?p.allergyStatus:'unknown',allergens:Array.isArray(p.allergens)?p.allergens:[],allergyNotes:p.allergyNotes||'',careNotes:p.careNotes||''};
 }
 function loadPetProfiles(){
  const saved=read('pets',null);
- if(Array.isArray(saved))return saved.map(normalizePet);
+ if(Array.isArray(saved))return saved.map(p=>normalizePet({...p,profileConfirmed:p.profileConfirmed!==false}));
  return [normalizePet(read('pet',{name:'豆包',breed:'金毛',size:'大型犬'}))];
 }
 function selectedPets(){return (state.outingIds||[]).map(id=>state.pets.find(p=>p.id===id)).filter(Boolean)}
@@ -46,12 +46,13 @@ function savePetForm(form){
  const data=new FormData(form),known=data.get('allergyStatus')==='known',allergens=known?data.getAll('allergens'):[],note=known?data.get('allergyNotes').trim():'';
  if(!data.get('name').trim()){$('#pet-form-error').textContent='请填写宠物名字';return}
  if(known&&!allergens.length&&!note){$('#pet-form-error').textContent='请选择过敏原，或补充其他已知过敏原';return}
- const pet=normalizePet({id:state.editingPetId||state.newPetId,name:data.get('name').trim(),species:data.get('species'),breed:data.get('breed').trim(),size:data.get('size'),travelMode:data.get('travelMode'),allergyStatus:data.get('allergyStatus'),allergens,allergyNotes:note,careNotes:data.get('careNotes').trim()});
- const index=state.pets.findIndex(p=>p.id===pet.id);if(index<0)state.pets.push(pet);else state.pets[index]=pet;
- if(!state.outingIds.length)state.outingIds=[pet.id];persist('pets',state.pets);persist('outing-pets',state.outingIds);state.chatReady=false;render();petManager();restoreOutingDraft();toast('档案已保存，可继续选择本次同行宠物');
+ const pet=normalizePet({profileConfirmed:true,id:state.editingPetId||state.newPetId,name:data.get('name').trim(),species:data.get('species'),breed:data.get('breed').trim(),size:data.get('size'),travelMode:data.get('travelMode'),allergyStatus:data.get('allergyStatus'),allergens,allergyNotes:note,careNotes:data.get('careNotes').trim()});
+ const index=state.pets.findIndex(p=>p.id===pet.id),next=[...state.pets];if(index<0)next.push(pet);else next[index]=pet;
+ try{localStorage.setItem('petaccess-pets',JSON.stringify(next))}catch{$('#pet-form-error').textContent='本机存储空间不足，档案尚未保存，请清理后重试。';return}state.pets=next;
+ if(!state.outingIds.length)state.outingIds=[pet.id];persist('outing-pets',state.outingIds);state.chatReady=false;render();if(state.dinner?.awaitingProfile){dinnerProfileSaved(pet);return}petManager();restoreOutingDraft();toast('档案已保存，可继续选择本次同行宠物');
 }
 function restoreOutingDraft(){if(!state.petOutingDraft)return;document.querySelectorAll('#outing-pets-form input[name="outingPets"]').forEach(el=>el.checked=state.petOutingDraft.includes(el.value));state.petOutingDraft=null}
-function commitOuting(form){const ids=new FormData(form).getAll('outingPets');if(!ids.length){$('#outing-pets-error').textContent='请至少选择一只本次同行的宠物';return}state.outingIds=ids.filter(id=>state.pets.some(p=>p.id===id));persist('outing-pets',state.outingIds);state.chatReady=false;const back=state.petReturn;close();render();if(back==='ai')openAI();if(back==='route-prefs')routePrefsSheet();toast(`已选择 ${selectedPets().length} 只同行：${outingNames()}`)}
+function commitOuting(form){const ids=new FormData(form).getAll('outingPets');if(!ids.length){$('#outing-pets-error').textContent='请至少选择一只本次同行的宠物';return}state.outingIds=ids.filter(id=>state.pets.some(p=>p.id===id));persist('outing-pets',state.outingIds);state.chatReady=false;const back=state.petReturn;close();render();if(back==='ai')openAI();if(back==='dinner')resumeDinner();if(back==='route-prefs')routePrefsSheet();toast(`已选择 ${selectedPets().length} 只同行：${outingNames()}`)}
 function confirmRemovePet(id){const pet=state.pets.find(p=>p.id===id);if(!pet)return;state.modal='pet-delete';sheet(`<div class="sheet-body">${sheetHead('移除本机宠物档案？')}<p class="page-desc">将移除${esc(pet.name)}的当前档案；历史预约仍保留当时提交的宠物与照护信息。</p><button class="primary pets-save" data-action="confirm-remove-pet" data-id="${esc(id)}">移除${esc(pet.name)}的档案</button><button class="back-text" data-action="edit-pet" data-id="${esc(id)}">返回编辑</button></div>`)}
 function removePet(id){state.pets=state.pets.filter(p=>p.id!==id);state.outingIds=state.outingIds.filter(value=>value!==id);if(!state.outingIds.length&&state.pets.length)state.outingIds=[state.pets[0].id];persist('pets',state.pets);persist('outing-pets',state.outingIds);state.petOutingDraft=null;state.chatReady=false;render();petManager();toast('本机档案已移除')}
 function newBooking(id){
