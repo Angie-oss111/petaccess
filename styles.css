@@ -553,3 +553,21 @@ button:active{transform:scale(.98)}
 
 #page.is-browsing>.hero{display:none}
 #page.is-browsing>.quicklinks{margin-top:18px}
+
+/* Voice remains a deliberate action, with text feedback and a manual stop. */
+.chat-input-wrap{flex-shrink:0}
+.chat-input{gap:8px}
+.chat-input button{flex-shrink:0}
+.chat-input .voice-button{display:flex;flex-direction:column;gap:2px;background:var(--soft);color:var(--primary);border:1px solid #cbd8ce;min-width:44px;min-height:48px}
+.voice-button svg{width:18px;height:18px}.voice-button span{font-size:10px;line-height:1.2}
+.voice-status{font-size:11px;line-height:1.8;color:var(--muted);margin:8px 3px 0;overflow-wrap:anywhere}
+.chat-input-wrap[data-voice="connecting"] .voice-status,.chat-input-wrap[data-voice="listening"] .voice-status,.chat-input-wrap[data-voice="stopping"] .voice-status{color:var(--positive)}
+.chat-input-wrap[data-voice="error"] .voice-status{color:var(--price)}
+.chat-input-wrap[data-voice="listening"] .chat-input{border-color:var(--positive);box-shadow:0 0 0 2px #41624e12}
+.chat-input-wrap[data-voice="listening"] .voice-button,.chat-input-wrap[data-voice="stopping"] .voice-button{background:var(--primary);color:var(--on-primary);border-color:var(--primary)}
+.chat-input-wrap[data-voice="listening"] .voice-button svg{animation:voice-breathe 1.4s ease-in-out infinite}
+.chat-input button:disabled{opacity:.5;cursor:default;transform:none}
+.chat-input input:focus-visible{outline:2px solid var(--primary);outline-offset:4px;border-radius:3px}
+.chat-input input[readonly]{color:var(--primary)}
+@keyframes voice-breathe{50%{opacity:.45}}
+@media(prefers-reduced-motion:reduce){.chat-input-wrap[data-voice="listening"] .voice-button svg{animation:none}}
