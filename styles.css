@@ -641,3 +641,10 @@ html[data-locale="en"] .dinner-home-entry strong{font-size:13px}
 
 html[data-locale="en"] .hero{height:228px}
 html[data-locale="en"] .hero-edition{font-size:8px;right:12px;bottom:17px}
+
+/* Longer translated labels need their own column and natural wrapping. */
+html[data-locale="en"] .mall-rules dl>div{grid-template-columns:92px minmax(0,1fr)}
+html[data-locale="en"] .mall-rules dt{overflow-wrap:break-word}
+html[data-locale="en"] .mall-access-filters{flex-wrap:wrap}
+html[data-locale="en"] .dinner-match-meta{flex-wrap:wrap}
+html[data-locale="en"] .dinner-steps li{text-align:center;line-height:1.4}
