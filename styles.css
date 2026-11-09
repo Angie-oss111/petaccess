@@ -480,3 +480,21 @@ button:active{transform:scale(.98)}
 @media(max-width:820px){body{background:var(--paper)}.phone{border-radius:0;box-shadow:none}#page{padding-inline:18px}}
 @media(max-width:360px){#page{padding-inline:14px}.filter-row{gap:5px}.chip{padding-inline:8px;font-size:10px}.quicklinks{gap:4px}.quicklink{font-size:11px}.hero h1{font-size:25px}.sheet-footer{flex-wrap:wrap}.sheet-footer .primary{min-width:130px}.rule-grid{gap:6px}.rule{padding:9px;font-size:11px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Search keeps its results beside the input, with explicit touch controls. */
+.searchbox{gap:6px;padding:0 3px 0 12px;height:52px}
+.searchbox>svg{flex-shrink:0}
+.searchbox input{flex:1;width:0;height:44px}
+.searchbox input:focus-visible{outline:none}
+.searchbox input::-webkit-search-cancel-button{display:none}
+.search-clear{display:flex;align-items:center;justify-content:center;flex:0 0 36px;height:44px;border-radius:10px;color:var(--muted)}
+.search-clear[hidden]{display:none}
+.search-clear svg{width:16px;height:16px}
+.search-submit{flex:0 0 58px;height:44px;border-radius:12px;background:var(--primary);color:var(--surface);font-size:13px;font-weight:600}
+.search-submit:active{background:#193d49;transform:scale(.96)}
+#page.is-searching>.hero,#page.is-searching>.quicklinks{display:none}
+.is-searching .section-head{margin-top:22px}
+.search-query{display:block;font-size:14px;color:var(--ink);font-weight:600;overflow-wrap:anywhere}
+.search-scope{display:block;font-size:11px;margin:2px 0 4px}
+.is-searching .results-meta{padding:12px 14px;margin:0 0 16px;background:var(--soft);border-radius:14px}
+.is-searching .results-meta>span{min-width:0}
