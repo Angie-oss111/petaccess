@@ -361,13 +361,14 @@ button:active{transform:scale(.98)}
 .hero-cta{background:var(--accent);color:var(--on-accent);font-size:11px;border-radius:9px;padding:9px 12px;gap:12px}
 .hero-edition{position:absolute;right:15px;bottom:15px;z-index:2;border:1px solid #ffffff70;padding:5px 8px;border-radius:7px;color:white;font-size:9px;letter-spacing:1px}
 .quicklinks{padding:16px 0 20px;margin-bottom:22px;gap:8px;border-bottom:1px solid var(--line)}
-.quicklink{font-size:12px;line-height:1.5;font-weight:500;gap:5px;min-height:84px;border-radius:12px;position:relative;transition:background-color .18s,color .18s}
+.quicklink{font-size:12px;line-height:1.5;font-weight:500;gap:5px;min-height:84px;border-radius:12px;position:relative;background:#ecebc9;border:1px solid #ccd19c;transition:background-color .18s,color .18s,border-color .18s}
 .quickicon,.quicklink:nth-child(n) .quickicon{width:60px;height:60px;border-radius:0;background:transparent;color:var(--primary)}
 .quickicon svg.category-art{width:60px;height:60px;stroke-width:1.65;stroke:var(--primary);fill:none}
 .art-halo{fill:var(--soft-strong);stroke:none}
 .quicklink:nth-child(2) .art-halo,.quicklink:nth-child(4) .art-halo{fill:var(--accent-soft)}
-.quicklink[aria-pressed="true"]{background:var(--soft-strong);color:var(--primary);font-weight:650;box-shadow:inset 0 0 0 1.5px var(--primary)}
-.category-check{position:absolute;right:5px;top:5px;display:flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:50%;background:var(--primary);color:white;opacity:0;transition:opacity .15s}
+.quicklink[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:var(--on-primary);font-weight:650;box-shadow:0 3px 8px #1a35121f}
+.quicklink[aria-pressed="true"] svg.category-art{background:var(--surface);border-radius:50%}
+.category-check{position:absolute;right:5px;top:5px;display:flex;align-items:center;justify-content:center;width:19px;height:19px;border-radius:50%;background:var(--accent);color:var(--primary);opacity:0;transition:opacity .15s}
 .category-check svg{width:11px;height:11px;stroke-width:2.4}
 .quicklink[aria-pressed="true"] .category-check{opacity:1}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
