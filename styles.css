@@ -1,11 +1,11 @@
 /* PetAccess · Cream, forest green, marigold and soft meadow greens. */
 :root{
  --paper:#fff9f0;--surface:#fffdf8;--ink:#29382d;--muted:#687268;
- --primary:#5b7159;--on-primary:#ffffff;--accent:#d49b6d;--on-accent:#3b3027;
- --line:#e0e1d3;--soft:#edf0e2;--price:#985f43;--positive:#687b62;
- --accent-soft:#f6ecdf;--accent-hover:#c8895d;--primary-hover:#4b614b;
+ --primary:#647366;--on-primary:#ffffff;--accent:#c6a184;--on-accent:#3b3027;
+ --line:#e0e1d3;--soft:#edf0e2;--price:#80634d;--positive:#687b62;
+ --accent-soft:#f6ecdf;--accent-hover:#b78b6c;--primary-hover:#526354;
  --sage:#b5c1a2;--soft-strong:#e2e8d6;--canvas:#f0efe5;
- --orange:var(--accent);--green:var(--primary);
+ --orange:var(--price);--green:var(--primary);
  --radius-card:18px;--shadow-card:0 3px 12px #536b5708;
  --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
 }
