@@ -633,6 +633,16 @@ html[data-locale="en"] .quicklink{font-size:10px;letter-spacing:-.15px}
 /* One set of discovery shortcuts, with room for translated labels. */
 .quicklinks{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .show-all-link{display:inline-flex;align-items:center;min-height:44px;padding:4px 0;color:var(--primary);font-size:13px;font-weight:650;text-decoration:underline;text-underline-offset:3px}
+/* Official PetAccess artwork, supplied by the brand owner. */
+.brandmark img.brand-art,.ai-logo img.brand-art{display:block;width:100%;height:100%;object-fit:contain;flex-shrink:0}
+.wordmark{display:inline-flex;align-items:center;flex-shrink:0;line-height:0}
+.wordmark img{display:block;width:172px;height:auto}
+.logo .brandmark{width:32px;height:42px;flex-shrink:0}
+.logo .wordmark img{width:137px}
+.intro-brand .brandmark{width:36px;height:46px;flex-shrink:0}
+.float-ai .ai-logo{width:32px;height:36px;background:transparent;border-radius:0;padding:0}
+.dialog-header .ai-logo{width:36px;height:44px;background:transparent;border-radius:0}
+.answer-label .ai-logo{width:24px;height:30px;background:transparent;border-radius:0}
 .quicklink,html[data-locale="en"] .quicklink{min-height:88px;padding:5px 3px;white-space:normal;text-align:center;line-height:1.25;font-size:11px;letter-spacing:0}
 .quickicon,.quicklink:nth-child(n) .quickicon,.quickicon svg.category-art{width:54px;height:54px}
 html[data-locale="en"] .hero h1{font-size:29px;letter-spacing:-.7px}
