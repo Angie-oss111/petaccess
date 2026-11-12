@@ -1,7 +1,8 @@
 /* Authored product copy in English and Cantonese. Stable data and personal content stay unchanged. */
 const interfaceMessages={
  "少点规划，多点相伴。": ["Less planning. More time together.", "少啲計劃，多啲相伴。"],
- "PetAccess 宠物友好商家计划": ["PetAccess pet-friendly merchant programme", "PetAccess 寵物友善商戶計劃"],
+ "大宠点评": ["PetAccess", "大寵點評"],
+ "大宠点评 宠物友好商家计划": ["PetAccess pet-friendly merchant programme", "大寵點評 寵物友善商戶計劃"],
  "语言": [
   "Language",
   "語言"
@@ -4323,7 +4324,7 @@ function applyInterfaceLanguage(){
   document.documentElement.lang=languageOptions.find(([id])=>id===interfaceLanguage)[2];
   document.documentElement.dataset.locale=interfaceLanguage;
   document.querySelectorAll('.brand-slogan,[data-brand-slogan]').forEach(el=>el.lang=languageOptions.find(([id])=>id===interfaceLanguage)[2]);
-  document.title=interfaceLanguage==='en'?'PetAccess · Together, everywhere':interfaceLanguage==='yue'?'PetAccess · 帶佢一齊出門':'PetAccess · 带它一起出门';
+  document.title=interfaceLanguage==='en'?'PetAccess · Together, everywhere':interfaceLanguage==='yue'?'大寵點評 · 帶佢一齊出門':'大宠点评 · 带它一起出门';
   const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
   for(let node;node=walker.nextNode();){
    if(!node.textContent.trim()||node.parentElement?.closest(untranslated))continue;
