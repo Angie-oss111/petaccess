@@ -575,6 +575,8 @@ button:active{transform:scale(.98)}
 /* Dinner journey shares the paper, ink and garden palette. */
 .dinner-home-entry{display:flex;width:100%;align-items:center;gap:12px;text-align:left;padding:16px;margin:16px 0 20px;border:1px solid var(--line);border-radius:16px;background:var(--surface);color:var(--ink)}
 .dinner-entry-icon{display:grid;place-items:center;background:var(--soft);width:44px;height:48px;flex-shrink:0;border-radius:13px;color:var(--primary)}
+.dinner-entry-icon:has(.pet-bowl-art){background:#fff0dc}
+.dinner-entry-icon svg:has(.pet-bowl-art){width:34px;height:34px}
 .dinner-entry-icon svg{width:23px;height:23px}.dinner-home-entry>span:nth-child(2){min-width:0;flex:1}.dinner-home-entry small{display:block;font-size:9px;letter-spacing:1.5px;color:var(--positive)}
 .dinner-home-entry strong{display:block;font-size:16px;margin:5px 0}.dinner-home-entry em{display:block;font-style:normal;font-size:11px;color:var(--muted);line-height:1.7}.dinner-home-entry>svg{width:18px;flex-shrink:0}
 .dinner-steps{display:flex;list-style:none;margin:0;padding:14px 18px;border-bottom:1px solid var(--line);gap:4px;flex-shrink:0}.dinner-steps li{flex:1;display:flex;align-items:center;flex-direction:column;gap:5px;color:var(--muted);font-size:10px;position:relative}.dinner-steps b{width:23px;height:23px;display:grid;place-items:center;border-radius:50%;background:var(--soft);font-size:9px;font-weight:500}.dinner-steps .current{color:var(--primary);font-weight:600}.dinner-steps .current b{background:var(--primary);color:var(--on-primary)}.dinner-steps .done b{color:var(--positive);background:#e1e9df}
