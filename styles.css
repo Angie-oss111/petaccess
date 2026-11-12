@@ -639,6 +639,9 @@ html[data-locale="en"] .quicklink{font-size:10px;letter-spacing:-.15px}
 .brandmark img.brand-art,.ai-logo img.brand-art{display:block;width:100%;height:100%;object-fit:contain;flex-shrink:0}
 .wordmark{display:inline-flex;align-items:center;flex-shrink:0;line-height:0}
 .wordmark img{display:block;width:172px;height:auto}
+.header.home-brand-header{margin-bottom:3px}
+.brand-slogan{font-size:12px;font-weight:500;line-height:1.6;letter-spacing:.1px;color:var(--positive);margin:0 0 20px}
+.intro>.brand-slogan{font-size:14px;line-height:1.6;color:var(--positive);margin:12px 0 0}
 .logo .brandmark{width:32px;height:42px;flex-shrink:0}
 .logo .wordmark img{width:137px}
 .intro-brand .brandmark{width:36px;height:46px;flex-shrink:0}
