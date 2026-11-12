@@ -1,6 +1,6 @@
 /* Discovery taxonomy, first-person local reviews and personalized demo planning. */
 function initPlatform(){
- paths.restaurant='<path d="M4 3v7a3 3 0 0 0 6 0V3M7 3v19M17 3v8h4M21 3v19M17 3v8"/>';
+ paths.restaurant='<path d="M4 3v7a3 3 0 0 0 6 0V3M7 3v18M20 3c-2.5 1.8-4 5-4 9h4V3Zm0 9v9"/>';
  paths.star='<path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9Z"/>';
  places.push(
  {id:'bistro',type:'restaurant',cats:'carrier',maxPets:2,name:'禾间 · 花园餐厅',headline:'和毛孩子，共享一顿慢慢吃的饭',image:'cafe',rating:'4.8',reviews:42,distance:'1.6',tags:['花园露台','大型犬友好'],price:128,free:false,water:true,terrace:true,large:true,address:'深圳市福田区 · 香蜜湖片区（示例）',hours:'11:00 – 21:00',desc:'花园里的双人餐桌，和毛孩子一起把午饭吃成小小的假日。仅开放指定露台携宠用餐区域。',rule:'狗狗全程牵引，猫咪需在猫包或航空箱内；宠物不上桌，不使用人的餐具。不提供宠物餐食，请勿主动投喂。',review:'露台座位间隔舒服，店员提前摆好了水碗。带大狗吃饭也能从容一点。',update:'示例评价'},
