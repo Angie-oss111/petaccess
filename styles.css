@@ -1,12 +1,12 @@
-/* PetAccess · Reference palette: cream, deep forest green and bright marigold. */
+/* PetAccess · Warm white, botanical green and soft apricot, with original brand artwork. */
 :root{
- --paper:#fcf7ea;--surface:#fffaf0;--ink:#1a3512;--muted:#59634f;
- --primary:#1a3512;--on-primary:#ffffff;--accent:#f0a040;--on-accent:#1a3512;
- --line:#e6e1cb;--soft:#f2f0d4;--price:#80521f;--positive:#647c35;
- --accent-soft:#fff0d0;--accent-hover:#dc8c28;--primary-hover:#10250b;
- --sage:#bdc977;--soft-strong:#e8ebc5;--canvas:#f8f4e8;
+ --paper:#faf9f5;--surface:#fffefb;--ink:#2e402d;--muted:#65705f;
+ --primary:#3d5a3d;--on-primary:#ffffff;--accent:#efb16b;--on-accent:#2e402d;
+ --line:#e5e8dc;--soft:#f0f3e6;--price:#895325;--positive:#56713e;
+ --accent-soft:#fff1e0;--accent-hover:#e49d52;--primary-hover:#304b31;
+ --sage:#b7ce81;--soft-strong:#e6edcf;--canvas:#f3f4ee;
  --orange:var(--price);--green:var(--primary);
- --radius-card:18px;--shadow-card:0 3px 12px #1a35120a;
+ --radius-card:18px;--shadow-card:0 3px 12px #2e402d0a;
  --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
 }
 
@@ -366,7 +366,7 @@ button:active{transform:scale(.98)}
 .quickicon svg.category-art{width:60px;height:60px;stroke-width:1.65;stroke:var(--primary);fill:none}
 .art-halo{fill:var(--soft-strong);stroke:none}
 .quicklink:nth-child(2) .art-halo,.quicklink:nth-child(4) .art-halo{fill:var(--accent-soft)}
-.quicklink[aria-pressed="true"]{background:#e8edcf;color:var(--primary);font-weight:650;box-shadow:none}
+.quicklink[aria-pressed="true"]{background:var(--soft-strong);color:var(--primary);font-weight:650;box-shadow:none}
 .quicklink[aria-pressed="true"]::after{content:"";position:absolute;bottom:3px;left:50%;transform:translateX(-50%);width:22px;height:3px;border-radius:3px;background:var(--accent)}
 .category-check{position:absolute;right:7px;top:7px;display:flex;align-items:center;justify-content:center;width:15px;height:15px;border-radius:50%;background:var(--primary);color:var(--surface);opacity:0;transition:opacity .15s}
 .category-check svg{width:11px;height:11px;stroke-width:2.4}
@@ -412,7 +412,7 @@ button:active{transform:scale(.98)}
 .grid,.column{gap:12px}
 .place-card{background:var(--surface);border-radius:var(--radius-card);border:1px solid var(--line);box-shadow:var(--shadow-card)}
 .photo{height:156px}.column:nth-child(2) .place-card:first-child .photo{height:180px}
-.place-kind{left:8px;top:10px;background:#fffdf6f5;color:var(--positive);font-size:9px;padding:5px 7px;border-radius:7px}
+.place-kind{left:8px;top:10px;background:#fffefbf5;color:var(--positive);font-size:9px;padding:5px 7px;border-radius:7px}
 .place-kind.cafe{color:#765337}
 .photo-save{width:44px;height:44px;right:2px;top:0;background:transparent;color:white;filter:drop-shadow(0 1px 3px #0006)}
 .photo-save svg{width:19px;height:19px;stroke-width:2}
@@ -434,7 +434,7 @@ button:active{transform:scale(.98)}
 .float-ai .ai-logo svg.brand-art{width:24px;height:24px}
 .float-ai .spark{color:var(--accent)}
 .ai-logo{background:transparent;color:var(--primary)}
-#bottom-nav{background:#fffdf6f5;border-color:var(--line);padding-top:8px}
+#bottom-nav{background:#fffefbf5;border-color:var(--line);padding-top:8px}
 #bottom-nav button{font-size:11px;color:var(--muted);gap:4px;min-height:46px}
 #bottom-nav button svg{width:22px;height:22px}
 #bottom-nav button.active{color:var(--primary);font-weight:700}
@@ -642,13 +642,13 @@ html[data-locale="en"] .quicklink{font-size:10px;letter-spacing:-.15px}
 .brandmark img.brand-art,.ai-logo img.brand-art{display:block;width:100%;height:100%;object-fit:contain;flex-shrink:0}
 .wordmark{display:inline-flex;align-items:center;flex-shrink:0;line-height:0}
 .wordmark img{display:block;width:172px;height:auto}
-.header.home-brand-header{margin-bottom:3px}
+.header.home-brand-header{margin-bottom:5px}
 .brand-slogan{font-size:12px;font-weight:500;line-height:1.6;letter-spacing:.1px;color:var(--muted);margin:0 0 20px}
 .intro>.brand-slogan{font-size:14px;line-height:1.6;color:var(--muted);margin:12px 0 0}
-.logo .brandmark{width:36px;height:36px;flex-shrink:0}
+.logo .brandmark{width:48px;height:48px;flex-shrink:0}
 .logo .wordmark img{width:137px}
-.intro-brand .brandmark{width:44px;height:44px;flex-shrink:0}
-.float-ai .ai-logo{width:36px;height:36px;background:transparent;border-radius:0;padding:0}
+.intro-brand .brandmark{width:56px;height:56px;flex-shrink:0}
+.float-ai .ai-logo{width:38px;height:38px;background:transparent;border-radius:0;padding:0}
 .dialog-header .ai-logo{width:40px;height:40px;background:transparent;border-radius:0}
 .answer-label .ai-logo{width:28px;height:28px;background:transparent;border-radius:0}
 .quicklink,html[data-locale="en"] .quicklink{min-height:88px;padding:5px 3px;white-space:normal;text-align:center;line-height:1.25;font-size:11px;letter-spacing:0}
@@ -659,7 +659,7 @@ html[data-locale="en"] .hero-cta{font-size:11px}
 html[data-locale="en"] .card-bottom{flex-wrap:wrap;gap:6px}
 html[data-locale="en"] .pet-home-entry strong{font-size:13px}
 html[data-locale="en"] .dinner-home-entry strong{font-size:13px}
-@media(max-width:360px){.language-options button{padding-inline:11px}.language-label{font-size:10px}html[data-locale="en"] .quicklink{font-size:9px}html[data-locale="en"] .hero h1{font-size:26px}}
+@media(max-width:360px){.logo .brandmark{width:42px;height:42px}.logo .wordmark img{width:116px}.language-options button{padding-inline:11px}.language-label{font-size:10px}html[data-locale="en"] .quicklink{font-size:9px}html[data-locale="en"] .hero h1{font-size:26px}}
 @media(prefers-reduced-motion:reduce){.language-options button{transition:none}}
 
 html[data-locale="en"] .hero{height:228px}
@@ -672,15 +672,15 @@ html[data-locale="en"] .mall-access-filters{flex-wrap:wrap}
 html[data-locale="en"] .dinner-match-meta{flex-wrap:wrap}
 html[data-locale="en"] .dinner-steps li{text-align:center;line-height:1.4}
 
-/* Reference palette: warm paper, forest ink, orange accents and meadow tags. */
+/* Shared brand surfaces and interaction accents. */
 html{background:var(--paper)}
 body{background:var(--canvas)}
 input,select,textarea{accent-color:var(--primary)}
 .primary.orange{background:var(--accent);color:var(--on-accent)}
 .search-submit{background:var(--accent);color:var(--on-accent)}
 .search-submit:active{background:var(--accent-hover)}
-.pet-home-entry{background:var(--soft);border-color:var(--line)}
-.dinner-home-entry{background:var(--surface);border-color:#ebd6b0}
+.pet-home-entry{background:var(--surface);border-color:var(--line)}
+.dinner-home-entry{background:var(--surface);border-color:var(--line)}
 .dinner-entry-icon:has(.pet-bowl-art){background:var(--accent-soft)}
 .hero-cta{background:var(--accent);color:var(--on-accent)}
 .ai-welcome h2 span{color:var(--primary);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:7px;text-decoration-thickness:4px}
